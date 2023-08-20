@@ -1,14 +1,13 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+pub use tracing::{debug, error, info, trace, warn};
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+use tracing_subscriber::EnvFilter;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+/// A function for initializing the core tracing pattern
+pub fn init_tracing() {
+    // Initialize environment logger for all macros to use
+    tracing_subscriber::fmt()
+        .with_target(false)
+        .compact()
+        .with_env_filter(EnvFilter::from_default_env())
+        .init();
 }
