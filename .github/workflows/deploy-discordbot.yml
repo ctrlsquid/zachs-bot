@@ -1,0 +1,23 @@
+name: deploy cobracache
+
+on:
+  workflow_dispatch:
+  workflow_call:
+    secrets:
+      FLY_API_TOKEN:
+        required: true
+        description: Fly API token
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: deploy cobracache to fly.io
+    uses: ./.github/workflows/deploy-fly-app.yaml
+    with:
+      dockerfile: packages/discord/Dockerfile
+      config: packages/discord/fly.toml
+    secrets:
+      FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
