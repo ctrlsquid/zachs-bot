@@ -1,4 +1,6 @@
 # zachs-bot
+[![cargo check](https://github.com/sneakycrow/zachs-bot/actions/workflows/check.yml/badge.svg)](https://github.com/sneakycrow/zachs-bot/actions/workflows/check.yml)
+[![test](https://github.com/sneakycrow/zachs-bot/actions/workflows/test.yml/badge.svg)](https://github.com/sneakycrow/zachs-bot/actions/workflows/test.yml)
 
 A multi-platform bot to bring features I want to multiple platforms.
 
