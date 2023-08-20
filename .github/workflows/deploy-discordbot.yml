@@ -15,7 +15,7 @@ concurrency:
 jobs:
   deploy:
     name: deploy discord bot to fly.io
-    uses: ./.github/workflows/deploy-fly-app.yaml
+    uses: ./.github/workflows/deploy-fly-app.yml
     with:
       dockerfile: packages/discord/Dockerfile
       config: packages/discord/fly.toml
