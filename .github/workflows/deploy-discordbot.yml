@@ -1,4 +1,4 @@
-name: deploy cobracache
+name: deploy discord bot
 
 on:
   workflow_dispatch:
@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   deploy:
-    name: deploy cobracache to fly.io
+    name: deploy discord bot to fly.io
     uses: ./.github/workflows/deploy-fly-app.yaml
     with:
       dockerfile: packages/discord/Dockerfile
