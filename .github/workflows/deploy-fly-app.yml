@@ -1,0 +1,39 @@
+name: deploy fly app
+
+on:
+  workflow_call:
+    inputs:
+      directory:
+        required: false
+        type: string
+        description: Directory to deploy
+        default: "."
+      dockerfile:
+        required: true
+        type: string
+        description: Dockerfile to use
+      config:
+        required: false
+        type: string
+        description: Fly config file to use
+        default: "./fly.toml"
+    secrets:
+      FLY_API_TOKEN:
+        required: true
+        description: Fly API token
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: deploy to fly.io
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - run: flyctl deploy --remote-only --dockerfile ${{ inputs.dockerfile }} --config ${{ inputs.config }} ${{ inputs.directory }}
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
