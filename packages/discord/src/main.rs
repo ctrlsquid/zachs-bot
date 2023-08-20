@@ -1,4 +1,5 @@
 use poise::serenity_prelude as serenity;
+use zachsbot::{debug, info};
 
 struct Data {} // User data, which is stored and accessible in all command invocations
 type Error = Box<dyn std::error::Error + Send + Sync>;
@@ -25,6 +26,10 @@ async fn ping(ctx: Context<'_>) -> Result<(), Error> {
 
 #[tokio::main]
 async fn main() {
+    // Initialize tracing
+    zachsbot::init_tracing();
+
+    debug!("Initializing framework");
     let framework = poise::Framework::builder()
         .options(poise::FrameworkOptions {
             commands: vec![age(), ping()],
@@ -39,5 +44,6 @@ async fn main() {
             })
         });
 
+    info!("Starting bot connection to Discord");
     framework.run().await.unwrap();
 }
