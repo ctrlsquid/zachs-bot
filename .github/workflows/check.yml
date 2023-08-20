@@ -1,4 +1,4 @@
-name: "run cargo check"
+name: "cargo check"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
