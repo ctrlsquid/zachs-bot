@@ -1,6 +1,6 @@
 # Workflow to build your docs with oranda (and mdbook)
 # and deploy them to Github Pages
-name: Web deploy
+name: web deploy
 
 # We're going to push to the gh-pages branch, so we need that permission
 permissions:
