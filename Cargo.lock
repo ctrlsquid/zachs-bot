@@ -1882,10 +1882,10 @@ dependencies = [
 
 [[package]]
 name = "zachsbot"
-version = "0.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6cdd18b6879eb0568922c69644df7d3724a0c32d0b97b5b00e856d0d4b8f307a"
+version = "0.0.2"
 dependencies = [
+ "axum",
+ "tokio",
  "tracing",
  "tracing-subscriber",
 ]
@@ -1893,6 +1893,8 @@ dependencies = [
 [[package]]
 name = "zachsbot"
 version = "0.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e251f62e2042e9a07b03c7b5936063ae0c932b62e7e371f77f1a88cea6cc8cd5"
 dependencies = [
  "axum",
  "tokio",
@@ -1906,5 +1908,5 @@ version = "0.0.2"
 dependencies = [
  "poise",
  "tokio",
- "zachsbot 0.0.1",
+ "zachsbot 0.0.2 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
