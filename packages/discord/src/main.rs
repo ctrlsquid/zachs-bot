@@ -1,3 +1,5 @@
+mod commands;
+
 use poise::serenity_prelude as serenity;
 use zachsbot::{debug, info};
 
@@ -32,7 +34,7 @@ async fn main() {
     debug!("Initializing framework");
     let framework = poise::Framework::builder()
         .options(poise::FrameworkOptions {
-            commands: vec![age(), ping()],
+            commands: vec![age(), ping(), commands::poll::choice()],
             ..Default::default()
         })
         .token(std::env::var("DISCORD_TOKEN").expect("missing DISCORD_TOKEN"))
