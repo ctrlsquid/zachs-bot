@@ -1885,6 +1885,7 @@ name = "zachsbot"
 version = "0.0.2"
 dependencies = [
  "axum",
+ "hyper",
  "tokio",
  "tracing",
  "tracing-subscriber",
@@ -1907,6 +1908,7 @@ name = "zachsbot-discord"
 version = "0.0.2"
 dependencies = [
  "poise",
+ "rand",
  "tokio",
  "zachsbot 0.0.2 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
